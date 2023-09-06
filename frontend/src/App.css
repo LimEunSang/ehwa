@@ -1,12 +1,76 @@
+/* basic */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
+/* container */
+
 .container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* header */
+
+header {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dropdown-menu ul {
+  padding: 5px;
+}
+
+.dropdown-menu li {
+  padding: 5px;
+}
+
+.dropdown-menu .main-ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.dropdown-menu .main-ul > li {
+  position: relative;
+  float: left;
+  background-color: blue;
+}
+
+.dropdown-menu .main-ul > li:hover .sub-ul {
+  display: block;
+  background-color: red;
+}
+
+.dropdown-menu .main-ul .sub-ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  text-align: center;
+}
+
+.dropdown-menu .menu .login {
+  padding: 5px;
 }
