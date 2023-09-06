@@ -1,3 +1,9 @@
+/* 전역 변수 */
+:root {
+  --main-font-color: rgb(160, 0, 200);
+  --menu-heigh: 50px;
+}
+
 /* basic */
 
 * {
@@ -14,7 +20,6 @@ li {
 /* container */
 
 .container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,46 +28,51 @@ li {
 /* header */
 
 header {
-  width: 80%;
+  width: 100%;
+  max-width: 1240px;
+  height: 90px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
+  padding: 20px 0;
 }
 
-.menu {
+header .logo {
+  width: 12%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+header .menu {
+  width: 88%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.dropdown-menu ul {
-  padding: 5px;
+.menu .dropdown-menu {
+  width: 100%;
+  height: 100%;
 }
 
-.dropdown-menu li {
-  padding: 5px;
-}
-
-.dropdown-menu .main-ul:after {
+.menu .dropdown-menu:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.dropdown-menu .main-ul > li {
+.dropdown-menu > li {
   position: relative;
   float: left;
-  background-color: blue;
+  width: calc(100% / 8);
+  height: 100%;
+  text-align: center;
+  line-height: var(--menu-heigh);
 }
 
-.dropdown-menu .main-ul > li:hover .sub-ul {
-  display: block;
-  background-color: red;
-}
-
-.dropdown-menu .main-ul .sub-ul {
+.dropdown-menu .depth {
   display: none;
   position: absolute;
   left: 0;
@@ -71,6 +81,24 @@ header {
   text-align: center;
 }
 
-.dropdown-menu .menu .login {
-  padding: 5px;
+.dropdown-menu > li:hover {
+  color: var(--main-font-color);
+}
+
+.dropdown-menu > li:hover .depth {
+  display: block;
+}
+
+.dropdown-menu .depth > li {
+  line-height: 30px;
+  color: black;
+  background-color: white;
+}
+
+.dropdown-menu .depth > li:hover {
+  color: var(--main-font-color);
+}
+
+.menu .login {
+  font-size: 12px;
 }
