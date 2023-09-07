@@ -1,8 +1,11 @@
 /* 전역 변수 */
 :root {
-  --default-font-color: rgb(160, 0, 200);
-  --menu-heigh: 50px;
+  --default-font-color: rgb(68, 68, 68);
+  --signature-font-color: rgb(160, 0, 200);
+  --default-bg-color: rgb(249, 249, 249);
   --max-width: 1240px;
+  --header-height: 80px;
+  --sub-tab-height: 40px;
   --main-tab-cnt: 8;
 }
 
@@ -25,6 +28,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--default-font-color2);
+  background-color: var(--default-bg-color);
 }
 
 /* header */
@@ -32,16 +37,15 @@ li {
 header {
   width: 100%;
   max-width: var(--max-width);
-  height: 90px;
+  height: var(--header-height);
   display: flex;
   flex-direction: row;
-  padding: 20px 0;
 }
 
 header .logo {
   width: 12%;
   height: 100%;
-  line-height: var(--menu-heigh);
+  line-height: calc(var(--header-height) - 2px);
   font-size: 24px;
   cursor: pointer;
 }
@@ -69,22 +73,21 @@ header .menu {
   position: relative;
   float: left;
   width: calc(100% / var(--main-tab-cnt));
-  height: 100%;
   text-align: center;
-  line-height: var(--menu-heigh);
+  line-height: calc(var(--header-height) - 2px); /* border-bottom 공간 확보 */
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .main-tab > li:hover {
-  color: var(--default-font-color);
+  color: var(--signature-font-color);
 }
 
 .main-tab > li::after {
   display: block;
   content: "";
   transform: scaleX(0);
-  border-bottom: 1px solid var(--default-font-color);
+  border-bottom: 2px solid var(--signature-font-color);
   transition: transform 0.3s ease-in-out;
   transform-origin: left; /* Animate from left to right */
 }
@@ -94,26 +97,33 @@ header .menu {
 }
 
 .main-tab .sub-tab {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   left: 0;
   right: 0;
-  top: 102%;
+  top: 100%;
   text-align: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 1; /* carousel 사진 위로 위치 */
 }
 
 .main-tab > li:hover .sub-tab {
-  display: block;
+  /* display: block; */
+  visibility: visible;
+  opacity: 1;
+  height: var(--sub-tab-height);
 }
 
 .main-tab .sub-tab > li {
-  color: black;
-  background-color: white;
-  transition: color 0.3s ease-in-out;
+  line-height: var(--sub-tab-height);
+  color: var(--default-font-color);
+  background-color: var(--default-bg-color);
 }
 
 .main-tab .sub-tab > li:hover {
-  color: var(--default-font-color);
+  color: var(--signature-font-color);
 }
 
 /* carousel */
