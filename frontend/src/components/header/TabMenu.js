@@ -1,53 +1,53 @@
-const menuItems = [
+const tabItems = [
   {
-    tab: "소개",
+    mainTab: "소개",
     depth: [
-      { depthTab: "인사말", path: "/" },
-      { depthTab: "오시는 길", path: "/" },
+      { subTab: "인사말", path: "/" },
+      { subTab: "오시는 길", path: "/" },
     ],
   },
   {
-    tab: "국제결혼서류",
+    mainTab: "국제결혼서류",
     depth: [
-      { depthTab: "베트남", path: "/" },
-      { depthTab: "캄보디아", path: "/" },
+      { subTab: "베트남", path: "/" },
+      { subTab: "캄보디아", path: "/" },
     ],
   },
   {
-    tab: "입양서류",
-    depth: [{ depthTab: "입양서류", path: "/" }],
+    mainTab: "입양서류",
+    depth: [{ subTab: "입양서류", path: "/" }],
   },
   {
-    tab: "유학서류",
-    depth: [{ depthTab: "유학서류", path: "/" }],
+    mainTab: "유학서류",
+    depth: [{ subTab: "유학서류", path: "/" }],
   },
   {
-    tab: "초청",
-    depth: [{ depthTab: "초청", path: "/" }],
+    mainTab: "초청",
+    depth: [{ subTab: "초청", path: "/" }],
   },
   {
-    tab: "국적/영주권",
-    depth: [{ depthTab: "국적/영주권", path: "/" }],
+    mainTab: "국적/영주권",
+    depth: [{ subTab: "국적/영주권", path: "/" }],
   },
   {
-    tab: "불법체류자 구제",
-    depth: [{ depthTab: "불법체류자 구제", path: "/" }],
+    mainTab: "불법체류자 구제",
+    depth: [{ subTab: "불법체류자 구제", path: "/" }],
   },
   {
-    tab: "커뮤니티",
-    depth: [{ depthTab: "공지사항", path: "/" }],
+    mainTab: "커뮤니티",
+    depth: [{ subTab: "공지사항", path: "/" }],
   },
 ];
 
 const TabMenu = () => {
   return (
-    <ul className="tab-menu">
-      {menuItems.map((item, key) => (
+    <ul className="main-tab">
+      {tabItems.map((item, key) => (
         <li key={key}>
-          {item.tab}
-          <ul className="depth">
+          {item.mainTab}
+          <ul className="sub-tab">
             {item.depth.map((depthItem, key) => (
-              <li key={key}>{depthItem.depthTab}</li>
+              <li key={key}>{depthItem.subTab}</li>
             ))}
           </ul>
         </li>

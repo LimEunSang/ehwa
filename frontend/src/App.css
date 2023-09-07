@@ -1,9 +1,9 @@
 /* 전역 변수 */
 :root {
-  --main-font-color: rgb(160, 0, 200);
+  --default-font-color: rgb(160, 0, 200);
   --menu-heigh: 50px;
   --max-width: 1240px;
-  --tab-menu-cnt: 8;
+  --main-tab-cnt: 8;
 }
 
 /* basic */
@@ -54,21 +54,21 @@ header .menu {
   align-items: center;
 }
 
-.menu .tab-menu {
+.menu .main-tab {
   width: 100%;
   height: 100%;
 }
 
-.menu .tab-menu:after {
+.menu .main-tab:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.tab-menu > li {
+.main-tab > li {
   position: relative;
   float: left;
-  width: calc(100% / var(--tab-menu-cnt));
+  width: calc(100% / var(--main-tab-cnt));
   height: 100%;
   text-align: center;
   line-height: var(--menu-heigh);
@@ -76,24 +76,24 @@ header .menu {
   cursor: pointer;
 }
 
-.tab-menu > li:hover {
-  color: var(--main-font-color);
+.main-tab > li:hover {
+  color: var(--default-font-color);
 }
 
-.tab-menu > li::after {
+.main-tab > li::after {
   display: block;
   content: "";
   transform: scaleX(0);
-  border-bottom: 1px solid var(--main-font-color);
+  border-bottom: 1px solid var(--default-font-color);
   transition: transform 0.3s ease-in-out;
   transform-origin: left; /* Animate from left to right */
 }
 
-.tab-menu > li:hover::after {
+.main-tab > li:hover::after {
   transform: scaleX(1);
 }
 
-.tab-menu .depth {
+.main-tab .sub-tab {
   display: none;
   position: absolute;
   left: 0;
@@ -102,18 +102,18 @@ header .menu {
   text-align: center;
 }
 
-.tab-menu > li:hover .depth {
+.main-tab > li:hover .sub-tab {
   display: block;
 }
 
-.tab-menu .depth > li {
+.main-tab .sub-tab > li {
   color: black;
   background-color: white;
   transition: color 0.3s ease-in-out;
 }
 
-.tab-menu .depth > li:hover {
-  color: var(--main-font-color);
+.main-tab .sub-tab > li:hover {
+  color: var(--default-font-color);
 }
 
 /* carousel */
