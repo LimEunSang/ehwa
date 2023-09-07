@@ -42,12 +42,12 @@ const menuItems = [
 const TabMenu = () => {
   return (
     <ul className="tab-menu">
-      {menuItems.map((item) => (
-        <li key={item.tab}>
+      {menuItems.map((item, key) => (
+        <li key={key}>
           {item.tab}
           <ul className="depth">
-            {item.depth.map((depthItem) => (
-              <li key={depthItem.depthTab}>{depthItem.depthTab}</li>
+            {item.depth.map((depthItem, key) => (
+              <li key={key}>{depthItem.depthTab}</li>
             ))}
           </ul>
         </li>

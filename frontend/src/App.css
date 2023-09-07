@@ -2,6 +2,8 @@
 :root {
   --main-font-color: rgb(160, 0, 200);
   --menu-heigh: 50px;
+  --max-width: 1240px;
+  --tab-menu-cnt: 8;
 }
 
 /* basic */
@@ -17,7 +19,7 @@ li {
   list-style: none;
 }
 
-/* App */
+/* App (container) */
 
 .App {
   display: flex;
@@ -29,7 +31,7 @@ li {
 
 header {
   width: 100%;
-  max-width: 1240px;
+  max-width: var(--max-width);
   height: 90px;
   display: flex;
   flex-direction: row;
@@ -66,7 +68,7 @@ header .menu {
 .tab-menu > li {
   position: relative;
   float: left;
-  width: calc(100% / 8); /* 8개의 메뉴 */
+  width: calc(100% / var(--tab-menu-cnt));
   height: 100%;
   text-align: center;
   line-height: var(--menu-heigh);
@@ -112,4 +114,10 @@ header .menu {
 
 .tab-menu .depth > li:hover {
   color: var(--main-font-color);
+}
+
+/* carousel */
+
+.carousel {
+  width: 100%;
 }
