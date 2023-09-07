@@ -17,9 +17,9 @@ li {
   list-style: none;
 }
 
-/* container */
+/* App */
 
-.container {
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,9 +39,9 @@ header {
 header .logo {
   width: 12%;
   height: 100%;
-  display: flex;
-  align-items: center;
+  line-height: var(--menu-heigh);
   font-size: 24px;
+  cursor: pointer;
 }
 
 header .menu {
@@ -52,53 +52,64 @@ header .menu {
   align-items: center;
 }
 
-.menu .dropdown-menu {
+.menu .tab-menu {
   width: 100%;
   height: 100%;
 }
 
-.menu .dropdown-menu:after {
+.menu .tab-menu:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.dropdown-menu > li {
+.tab-menu > li {
   position: relative;
   float: left;
-  width: calc(100% / 8);
+  width: calc(100% / 8); /* 8개의 메뉴 */
   height: 100%;
   text-align: center;
   line-height: var(--menu-heigh);
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.dropdown-menu .depth {
+.tab-menu > li:hover {
+  color: var(--main-font-color);
+}
+
+.tab-menu > li::after {
+  display: block;
+  content: "";
+  transform: scaleX(0);
+  border-bottom: 1px solid var(--main-font-color);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: left; /* Animate from left to right */
+}
+
+.tab-menu > li:hover::after {
+  transform: scaleX(1);
+}
+
+.tab-menu .depth {
   display: none;
   position: absolute;
   left: 0;
   right: 0;
-  top: 100%;
+  top: 102%;
   text-align: center;
 }
 
-.dropdown-menu > li:hover {
-  color: var(--main-font-color);
-}
-
-.dropdown-menu > li:hover .depth {
+.tab-menu > li:hover .depth {
   display: block;
 }
 
-.dropdown-menu .depth > li {
-  line-height: 30px;
+.tab-menu .depth > li {
   color: black;
   background-color: white;
+  transition: color 0.3s ease-in-out;
 }
 
-.dropdown-menu .depth > li:hover {
+.tab-menu .depth > li:hover {
   color: var(--main-font-color);
-}
-
-.menu .login {
-  font-size: 12px;
 }
