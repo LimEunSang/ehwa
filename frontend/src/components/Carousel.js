@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 
-const imgURL = "https://picsum.photos/1920/400/?random"; // 가로 size에 화면 크기 기입
+const imgURL = "https://picsum.photos/1600/400/?random"; // 가로 size에 화면 크기 기입
 
 const Carousel = () => {
   const settings = {

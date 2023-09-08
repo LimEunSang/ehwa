@@ -5,8 +5,8 @@
   --default-bg-color: rgb(249, 249, 249);
   --max-width: 1240px;
   --header-height: 80px;
-  --sub-tab-height: 40px;
-  --main-tab-cnt: 8;
+  --page-tab-cnt: 8;
+  --page-ul-height: 40px;
 }
 
 /* basic */
@@ -47,83 +47,78 @@ header .logo {
   height: 100%;
   line-height: calc(var(--header-height) - 2px);
   font-size: 24px;
+  color: var(--signature-font-color);
   cursor: pointer;
 }
 
-header .menu {
+header .dropdown-page-menu {
   width: 88%;
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-}
 
-.menu .main-tab {
-  width: 100%;
-  height: 100%;
-}
+  .tab-ul {
+    width: 100%;
+    height: 100%;
+  }
 
-.menu .main-tab:after {
-  display: block;
-  content: "";
-  clear: both;
-}
+  .tab-li {
+    position: relative;
+    float: left;
+    width: calc(100% / var(--page-tab-cnt));
+    text-align: center;
+    line-height: calc(var(--header-height) - 2px); /* border-bottom 공간 확보 */
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+  }
 
-.main-tab > li {
-  position: relative;
-  float: left;
-  width: calc(100% / var(--main-tab-cnt));
-  text-align: center;
-  line-height: calc(var(--header-height) - 2px); /* border-bottom 공간 확보 */
-  transition: color 0.3s ease-in-out;
-  cursor: pointer;
-}
+  .tab-li:hover {
+    color: var(--signature-font-color);
+  }
 
-.main-tab > li:hover {
-  color: var(--signature-font-color);
-}
+  .tab-li::after {
+    display: block;
+    content: "";
+    transform: scaleX(0);
+    border-bottom: 2px solid var(--signature-font-color);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left; /* Animate from left to right */
+  }
 
-.main-tab > li::after {
-  display: block;
-  content: "";
-  transform: scaleX(0);
-  border-bottom: 2px solid var(--signature-font-color);
-  transition: transform 0.3s ease-in-out;
-  transform-origin: left; /* Animate from left to right */
-}
+  .tab-li:hover::after {
+    transform: scaleX(1);
+  }
 
-.main-tab > li:hover::after {
-  transform: scaleX(1);
-}
+  .page-ul {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 1; /* carousel 사진 위로 위치 */
+  }
 
-.main-tab .sub-tab {
-  /* display: none; */
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-  z-index: 1; /* carousel 사진 위로 위치 */
-}
+  .tab-li:hover .page-ul {
+    /* display: block; */
+    visibility: visible;
+    opacity: 1;
+    height: var(--page-ul-height);
+  }
 
-.main-tab > li:hover .sub-tab {
-  /* display: block; */
-  visibility: visible;
-  opacity: 1;
-  height: var(--sub-tab-height);
-}
+  .page-li {
+    line-height: var(--page-ul-height);
+    color: var(--default-font-color);
+    background-color: var(--default-bg-color);
+  }
 
-.main-tab .sub-tab > li {
-  line-height: var(--sub-tab-height);
-  color: var(--default-font-color);
-  background-color: var(--default-bg-color);
-}
-
-.main-tab .sub-tab > li:hover {
-  color: var(--signature-font-color);
+  .page-li:hover {
+    color: var(--signature-font-color);
+  }
 }
 
 /* carousel */
